@@ -1,5 +1,9 @@
 .scrollable-menu {
   height: auto;
-  max-height: 200px;
+  max-height: 18em;
   overflow-x: hidden;
+}
+
+.caret{
+  margin-left: 1em;
 }

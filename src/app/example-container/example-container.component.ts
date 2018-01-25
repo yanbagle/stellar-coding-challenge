@@ -20,6 +20,7 @@ export class ExampleContainerComponent implements OnInit {
       this.setMovies(res.results);
     }, (error) => {
       // handle error response
+      this.dropdownName = error.statusMessage;
     });
   }
 
