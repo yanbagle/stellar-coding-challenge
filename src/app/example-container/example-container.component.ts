@@ -15,6 +15,7 @@ export class ExampleContainerComponent implements OnInit {
 
   constructor(private moviesService: MoviesDbService) { }
 
+  // when the app starts, make service call to get movies
   ngOnInit() {
     this.moviesService.getPopularMovies().subscribe((res) => {
       this.setMovies(res.results);

@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DropdownMenuComponent } from './dropdown-menu.component';
 import {Component, NO_ERRORS_SCHEMA, ViewChild} from '@angular/core';
-import {by} from 'protractor';
 
 const dropdownList = ['1', '2', '3'];
 const name = 'dropdown name';
@@ -50,8 +49,12 @@ describe('DropdownMenuComponent', () => {
   });
 
   it('should display clear button', () => {
-    const clearButton = fixture.nativeElement.querySelector('#clear-button');
+    let clearButton = fixture.nativeElement.querySelector('#clear-button');
     expect(clearButton).toBeDefined();
+    // clear button
+    component.dropdownMenuComponent.clearSelection();
+    clearButton = fixture.nativeElement.querySelector('#clear-button');
+    expect(clearButton).toBeNull();
   });
 
 });

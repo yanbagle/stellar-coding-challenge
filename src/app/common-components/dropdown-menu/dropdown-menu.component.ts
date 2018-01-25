@@ -18,11 +18,13 @@ export class DropdownMenuComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
+  // set user selected item
   public setCurrentSelection(selection) {
     this.currentSelection = selection;
     this.hasSelection = true;
   }
 
+  // clear selection -> make clear button visible
   public clearSelection () {
     this.currentSelection = this.defaultOpt;
     this.hasSelection = false;

@@ -6,9 +6,10 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import {MoviesDbService} from '../services/movies-db-service';
 
+const results = [{title: 'It'}, {title: 'It 2'}, {title: 'It 3'}];
 class MockMovieService {
   public getPopularMovies(): Observable<any> {
-    return Observable.of({results: [{title: 'It'}, {title: 'It 2'}, {title: 'It 3'}]});
+    return Observable.of({results: results});
   }
 }
 
@@ -36,4 +37,10 @@ describe('ExampleContainerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set movies titles', () => {
+    component.setMovies(results);
+    expect(component.movieTitles[0]).toBe(results[0].title);
+  });
+
 });
