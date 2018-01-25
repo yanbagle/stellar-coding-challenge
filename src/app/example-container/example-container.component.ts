@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MoviesDbService} from '../services/movies-db-service';
 
 @Component({
   selector: 'app-example-container',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExampleContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private moviesService: MoviesDbService) { }
 
   ngOnInit() {
   }
