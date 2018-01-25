@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/delay';
+import {MoviesDTO} from '../models/Movies_DTO';
 
 @Injectable()
 export class MoviesDbService {
@@ -12,10 +13,10 @@ export class MoviesDbService {
   // service comp for consuming MoviesDB service
   constructor(private httpClient: HttpClient) {}
 
-  getPopularMovies(): Observable<any> {
+  getPopularMovies(): Observable<MoviesDTO> {
     const opts = '&language=en-US&page=1';
     const url = this.url + 'popular?' + this.key + opts;
-    return this.httpClient.get(url);
+    return this.httpClient.get<MoviesDTO>(url);
   }
 
 }

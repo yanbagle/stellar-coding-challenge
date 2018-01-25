@@ -2,25 +2,12 @@
   <div class="row">
     <div class="col-lg-6">
       <h2 class="bold">Movies Now Playing</h2>
-      <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Scrollable Menu <span class="caret"></span></button>
+      <div *ngIf="dropdownList" class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{currentSelection}}<span class="caret"></span></button>
         <ul class="dropdown-menu scrollable-menu" role="menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
+          <li *ngFor="let item of dropdownList" (click)="setCurrentSelection(item)"><a href="#">{{item}}</a></li>
         </ul>
-        <button type="button" class="btn btn-primary">Clear</button>
+        <button *ngIf="hasSelection" (click)="clearSelection()" type="button" class="btn btn-primary">Clear</button>
       </div>
     </div>
   </div>
